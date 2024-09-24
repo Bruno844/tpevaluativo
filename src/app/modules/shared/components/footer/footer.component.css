@@ -1,0 +1,22 @@
+
+
+    footer {
+          background-color: rgb(161, 147, 238)}
+    
+    footer h5 {
+        
+        border-bottom: 1px solid #3a0be2; /* Línea debajo del título */
+        padding-bottom: 10px; /* Espaciado */
+    }
+   
+    footer a {
+        text-decoration: none; /* Sin subrayado en enlaces*/  
+        color: #3a0be2;
+    }
+    
+    footer a:hover {
+        text-decoration: underline; /* Subrayar al pasar el mouse */
+    }
+
+
+    

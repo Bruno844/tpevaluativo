@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+.contenido{
+    width: 300px;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 8px;
+
+}
+
+p{
+    padding: 5px;
+}
+
+@media (min-width: 300px) and (max-width: 700px){
+    
+}
+
+@media (min-width: 700px){
+
+}
+
+h1{
+    padding: 2%;
+}
+button{
+  background-color: rgb(151, 150, 240);  
+
+  display: block;
+}
+
+mat-card-actions{
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+}
