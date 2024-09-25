@@ -8,6 +8,8 @@ import { ProductoComponent } from './pages/producto/producto.component';
 import { EntrenamientoComponent } from './pages/entrenamiento/entrenamiento.component';
 import { IndumentariaComponent } from './pages/indumentaria/indumentaria.component';
 import { PalosComponent } from './pages/palos/palos.component';
+import { SobrenosotrosComponent } from '../inicio/components/sobrenosotros/sobrenosotros.component';
+import { ContactoComponent } from '../inicio/components/contacto/contacto.component';
 
 // COMPONENTES LOCALES
 import { CardComponent } from './components/card/card.component';
@@ -19,6 +21,8 @@ import { CarruselComponent } from './components/carrusel/carrusel.component';
     EntrenamientoComponent,
     IndumentariaComponent,
     PalosComponent,
+    SobrenosotrosComponent,
+    ContactoComponent,
     CardComponent,
     CarruselComponent
   ],
@@ -31,6 +35,8 @@ import { CarruselComponent } from './components/carrusel/carrusel.component';
     EntrenamientoComponent,
     IndumentariaComponent,
     PalosComponent,
+    SobrenosotrosComponent,
+    ContactoComponent,
     CardComponent,
   ]
 })

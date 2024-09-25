@@ -42,3 +42,81 @@ mat-card-actions{
     display: flex;
     justify-content: center; /* Centra el contenido horizontalmente */
 }
+.ver-mas {  
+    text-align: center; /* Centrar el contenido */  
+    margin-top: 20px; /* Espacio superior para separar del contenido anterior */  
+}  
+
+.boton-ver-mas {  
+    padding: 10px 20px; /* Espaciado interno del botón */  
+    font-size: 16px; /* Tamaño de fuente */  
+    background-color: rgb(151, 150, 240);  
+    color: white; /* Color del texto */  
+    text-decoration: none; /* Sin subrayado */  
+    border-radius: 5px; /* Bordes redondeados */  
+}  
+
+.boton-ver-mas:hover {  
+    background-color: rgb(151, 150, 240);  
+}  
+.ver-mas {  
+    text-align: center; /* Centrar el contenido */  
+    margin-top: 20px; /* Espacio superior para separar del contenido anterior */  
+    margin-bottom: 40px; /* Espacio inferior para separar del footer */  
+
+}
+h1{
+font-family: "Cinzel", serif;}
+
+body {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.card {
+    background-color: #f7f7f7; /* Fondo del card */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    text-align: center;
+    padding: 20px;
+    width: 30%; /* Ajusta el ancho de las cards */
+    transition: transform 0.3s; /* Efecto al pasar el mouse */
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.card h2 {
+    color: #333;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666;
+}
+
+.card .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(151, 150, 240);  
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Efecto de agrandado */
+}
