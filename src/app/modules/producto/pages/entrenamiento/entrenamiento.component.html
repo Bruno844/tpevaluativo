@@ -1,9 +1,14 @@
-<div class="container">
-    <div class="row">
-        <h1>Entrenamiento</h1>
-
-        <div class="col">
-            
-        </div>
-    </div>
-</div>
+<div class="container">  
+    <h2>Productos de Entrenamiento</h2>  
+    <div class="row">  
+      <div class="col" *ngFor="let entrenamiento of entrenamientos">  
+        <div class="card">  
+          <img [src]="entrenamiento.imagen" [alt]="entrenamiento.alt" class="card-image">  
+          <div class="card-content">  
+            <h3>{{ entrenamiento.nombre }}</h3>  
+            <button class="btn">Agregar al carrito</button>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>

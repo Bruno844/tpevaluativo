@@ -1,1 +1,14 @@
-<p>indumentaria works!</p>
+<div class="container">  
+    <h2>Productos de Indumentaria</h2>  
+    <div class="row">  
+      <div class="col" *ngFor="let item of indumentaria">  
+        <div class="card">  
+          <img [src]="item.imagen" [alt]="item.alt" class="card-image">  
+          <div class="card-content">  
+            <h3>{{ item.nombre }}</h3>  
+            <button class="btn">Agregar al carrito</button>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>
