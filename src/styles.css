@@ -26,3 +26,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.dark{
+    background-color: rgb( 127, 123, 141 );
+    color: white;
+    transition: all 1.5s ease;
+}

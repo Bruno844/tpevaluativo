@@ -154,7 +154,16 @@ export class IniciosesionComponent {
             icon: "success"
           });
 
-          this.servicioRutas.navigate(['/inicio']);
+          this.servicioAuth.setUsuarioRol(usuarioData.rol);
+          if(usuarioData.rol === "admin"){
+            console.log("inicio de administradoe");
+            this.servicioRutas.navigate(['/admin']);
+          }else{
+            console.log("inicio de visitante");
+            this.servicioRutas.navigate(['/inicio'])
+          }
+
+          
         })
         .catch(err => {
           Swal.fire({
