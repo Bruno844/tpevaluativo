@@ -9,6 +9,7 @@ import { PalosComponent } from './pages/palos/palos.component';
 import { SobrenosotrosComponent } from '../inicio/components/sobrenosotros/sobrenosotros.component';
 import { ContactoComponent } from '../inicio/components/contacto/contacto.component';
 
+
 const routes: Routes = [
   {
     path:"producto",component:ProductosComponent
@@ -25,9 +26,11 @@ const routes: Routes = [
   {
     path:"sobrenosotros",component:SobrenosotrosComponent
   },
+  { path: 'general', component: ProductosComponent },
   {
     path:"contacto",component:ContactoComponent
   }
+
 ];
 
 @NgModule({

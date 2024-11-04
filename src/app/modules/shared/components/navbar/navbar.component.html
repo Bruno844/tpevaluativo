@@ -7,7 +7,7 @@
   <mat-menu #seccion="matMenu">
     <button mat-menu-item routerLink="/inicio">Inicio</button>
     <button mat-menu-item [matMenuTriggerFor]="producto">Productos</button>
-    <button mat-menu-item routerLink="/admin">Admin</button>
+     <button id="menuAdmin" mat-button routerLink="/admin">Admin</button>
   </mat-menu>
 
 
@@ -20,14 +20,14 @@
   <!-- Menu desplegable -> PRODUCTOS -->
   <button id="menuProducto" mat-button [matMenuTriggerFor]="producto">Productos</button>
   <mat-menu #producto="matMenu">
-    <button mat-menu-item routerLink="/producto">General</button>
+    <button mat-menu-item routerLink="/producto">producto</button>
     <button mat-menu-item routerLink="/palos">Palos</button>
     <button mat-menu-item routerLink="/indumentaria">Indumentaria</button>
     <button mat-menu-item routerLink="/entrenamiento">Entrenamiento</button>
     <button mat-menu-item routerLink="/sobrenosotros">Sobre Nosotros</button>
      <button mat-menu-item routerLink="/contacto">Contacto</button>  </mat-menu>
 
-     <button id="menuAdmin" mat-button routerLink="/admin">Admin</button>
+    
 
   <span class="example-spacer"></span>
 
