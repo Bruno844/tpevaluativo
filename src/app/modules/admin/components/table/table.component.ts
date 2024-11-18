@@ -31,7 +31,8 @@ export class TableComponent {
     descripcion: new FormControl('', Validators.required),
     categoria: new FormControl('', Validators.required),
     // imagen: new FormControl('', Validators.required),
-    alt: new FormControl('', Validators.required)
+    alt: new FormControl('', Validators.required),
+    stock: new FormControl(0, Validators.required)
   })
 
   constructor(public servicioCrud: CrudService) { }
@@ -52,7 +53,8 @@ export class TableComponent {
         descripcion: this.producto.value.descripcion!,
         categoria: this.producto.value.categoria!,
         imagen: '',
-        alt: this.producto.value.alt!
+        alt: this.producto.value.alt!,
+        stock: this.producto.value.stock!
       }
 
       // Enviamos nombre y url de la imagen; definimos carpeta de imágenes como "productos"
@@ -120,7 +122,11 @@ export class TableComponent {
   }
 
   borrarProducto() {
-    //enviamos el id del producto para buscarlo y la url de la imagen va a servir para eliminar desde almacenamiento storage
+    /*
+      Ahora envíamos tanto el ID del producto (para identificarlo en Firestore)
+      y la URL de la imagen (para identificarlo en Storage)
+      ID y URL <- identificadores propios de cada archivo en la Base de Datos
+    */
     this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto, this.productoSeleccionado.imagen)
       .then(respuesta => {
         alert("Se ha podido eliminar con éxito.");
@@ -136,15 +142,17 @@ export class TableComponent {
     this.productoSeleccionado = productoSeleccionado;
     /*
       Toma los valores del producto seleccionado y los va a
-      autocompletar en el formulario del modal (menos el ID)
+      autocompletar en el formulario del modal
+      (menos el ID y la URL de la imagen)
     */
     this.producto.setValue({
       nombre: productoSeleccionado.nombre,
       precio: productoSeleccionado.precio,
       descripcion: productoSeleccionado.descripcion,
       categoria: productoSeleccionado.categoria,
-     // imagen: productoSeleccionado.imagen,
-      alt: productoSeleccionado.alt
+      // imagen: productoSeleccionado.imagen,
+      alt: productoSeleccionado.alt,
+      stock: productoSeleccionado.stock
     })
   }
 
@@ -160,36 +168,46 @@ export class TableComponent {
       descripcion: this.producto.value.descripcion!,
       categoria: this.producto.value.categoria!,
       imagen: this.productoSeleccionado.imagen,
-      alt: this.producto.value.alt!
+      alt: this.producto.value.alt!,
+      stock: this.producto.value.stock!
     }
-    //verificamos si el usuario ingresa o no una nueva imagen
+
+    // Verificamos si el usuario ingresa o no una nueva imagen
     if(this.imagen){
       this.servicioCrud.subirImagen(this.nombreImagen, this.imagen, "productos")
-      .then(resp=>{
+      .then(resp => {
         this.servicioCrud.obtenerUrlImagen(resp)
-        .then(url =>{ 
+        .then(url =>{
+          datos.imagen = url; // Actualizamos URL de la imagen en los datos del formulario
 
-        datos.imagen = url;//Actualizamos URL de la imagen en los datos del formulario
+          this.actualizarProducto(datos); // Actualizamos los datos
 
-        this.actualizarProducto(datos);//Actualizamos los datos
+          this.producto.reset(); // Vaciar las casillas del formulario
+        })
+        .catch(error => {
+          alert("Hubo un problema al subir la imagen :( \n"+error);
 
-        this.producto.reset();//Vaciar las casillas del formulario
-      } )
-      .catch(error=> {
-        alert("hubo un problema al subir la imagen\n"+error)
+          this.producto.reset();
+        })
       })
-    })
+    }else{
+      /*
+        Actualizamos formulario con los datos recibidos del usuario, pero sin 
+        modificar la imagen ya existente en Firestore y en Storage
+      */
+      this.actualizarProducto(datos);
     }
-    
-}
-actualizarProducto(datos:Producto){
-  // Enviamos al método el id del producto seleccionado y los datos actualizados
-  this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
-  .then(producto => {
-    alert("El producto se ha modificado con éxito.");
-  })
-  .catch(error => {
-    alert("Hubo un problema al modificar el producto: \n" + error);
-  })
-}
+  }
+
+  // ACTUALIZAR la información ya existente de los productos
+  actualizarProducto(datos: Producto){
+    // Enviamos al método el id del producto seleccionado y los datos actualizados
+    this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
+      .then(producto => {
+        alert("El producto se ha modificado con éxito.");
+      })
+      .catch(error => {
+        alert("Hubo un problema al modificar el producto: \n" + error);
+      })
+  }
 }

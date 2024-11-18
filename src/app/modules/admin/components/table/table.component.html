@@ -8,6 +8,7 @@
             <th scope="col">Precio</th>
             <th scope="col">Descripción</th>
             <th scope="col">Categoría</th>
+            <th scope="col">Stock</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -23,6 +24,7 @@
             <td>{{producto.precio}}</td>
             <td>{{producto.descripcion}}</td>
             <td>{{producto.categoria}}</td>
+            <td>{{producto.stock}}</td>
 
             <!-- ACCIONES -->
             <td>
@@ -30,8 +32,7 @@
                 data-bs-toggle="modal" data-bs-target="#editarProducto" (click)="mostrarEditar(producto)">
                     <mat-icon>edit</mat-icon>
                 </button>
-            </td>
-            <td>
+
                 <button id="btn-delete" title="Eliminar" type="button" class="btn btn-outline-danger" 
                 data-bs-toggle="modal" data-bs-target="#eliminarProducto" (click)="mostrarBorrar(producto)">
                     <mat-icon>delete</mat-icon>
@@ -87,6 +88,14 @@
 
                 <div class="mb-3">
                     <label class="form-label">Ingrese una imagen:</label>
+                    <!-- <input class="form-control" type="text" formControlName="imagen"
+                        placeholder="Ingrese vínculo de una imagen"> -->
+                    <!--
+                        type="file" <- recibe archivos
+                        accept="imagen/*" <- acepte todo tipo de extensiones (jpg, jpeg, png, gif)
+                        (change)="cargarImagen($event)" <- ejecuta el evento de cargarImagen que 
+                        definimos en el table.ts
+                      -->
                     <input type="file" accept="imagen/*" (change)="cargarImagen($event)">
                 </div>
 
@@ -94,6 +103,12 @@
                     <label class="form-label">Ingrese texto alternativo de la imagen:</label>
                     <input class="form-control" type="text" formControlName="alt"
                         placeholder="Ej.: Medias de chanchito">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese su stock:</label>
+                    <input type="number" class="form-control" formControlName="stock"
+                    placeholder="Ej.: 25">
                 </div>
             </div>
 
@@ -148,14 +163,21 @@
 
                 <div class="mb-3">
                     <label class="form-label">Ingrese una imagen:</label>
-                    <input class="form-control" type="text" formControlName="imagen"
-                        placeholder="{{productoEdit.imagen}}">
+                    <!-- <input class="form-control" type="text" formControlName="imagen"
+                        placeholder="{{productoEdit.imagen}}"> -->
+                    <input type="file" accept="imagen/*" (change)="cargarImagen($event)">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Ingrese texto alternativo de la imagen:</label>
                     <input class="form-control" type="text" formControlName="alt"
                         placeholder="{{productoEdit.alt}}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese su stock:</label>
+                    <input type="number" class="form-control" formControlName="stock"
+                    placeholder="{{productoEdit.stock}}">
                 </div>
             </div>
 
@@ -170,17 +192,17 @@
 </div>
 
 <!-- MODAL PARA ELIMINAR UN PRODUCTO -->
-<div class="modal fade" *ngIf="modalVisibleProducto" id="eliminarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- ENCABEZADO -->
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">¿Está seguro de eliminar el producto?</h1>
+                <h1 class="modal-title fs-5" *ngIf="modalVisibleProducto" id="exampleModalLabel">¿Está seguro de eliminar el producto?</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <!-- CUERPO DE MODAL -->
-            <div class="modal-body">
+            <div class="modal-body" *ngIf="modalVisibleProducto">
                 {{productoSeleccionado.nombre}}
                 <img src="{{productoSeleccionado.imagen}}" alt="{{productoSeleccionado.alt}}">
             </div>
