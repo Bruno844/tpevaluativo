@@ -27,7 +27,7 @@ export class CardComponent {
 
   @Output() productoAgregado = new EventEmitter<Producto>(); //@Output sera definido como un nuevo evento
 
-  stock:number = 0;
+  @Output() stock:number = 0;
 
   constructor(
     public servicioCrud: CrudService,

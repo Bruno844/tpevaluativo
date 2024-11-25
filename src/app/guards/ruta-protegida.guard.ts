@@ -8,9 +8,9 @@ import { AuthService } from '../modules/autentificacion/services/auth.service';
 import { Router } from '@angular/router';
 
 // Operadores tipo "observables"
-import { map, switchMap, of, from } from 'rxjs';
+import { map, switchMap, of, from, Observable } from 'rxjs';
 
-export const rutaProtegidaGuard: CanActivateFn = (route, state) => {
+export const rutaProtegidaGuard: CanActivateFn = (route, state):Observable<any> => {
   // Inyectamos/ instanciamos servicio de Autentificación en el guardián (forma local)
   const servicioAuth = inject (AuthService);
 

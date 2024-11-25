@@ -16,19 +16,19 @@ export class CardComponent {
        {
          id: "",
          nombre: "",
-         imagen: "",
+         imagen: "https://acdn.mitiendanube.com/stores/002/458/854/products/palo-adidas-indoor-estro-1-hybraskini-7eccea957ddf78b32c17169179334417-320-0.webp",
          alt: ""
        },
        {
          id: "",
          nombre: "",
-         imagen: "*",
+         imagen: "https://acdn.mitiendanube.com/stores/002/458/854/products/palo-adidas-indoor-estro-3-092b775dbe0834ce5417169218249709-320-0.webp",
          alt: ""
        },
        {
          id: "",
          nombre: "",
-         imagen: "",
+         imagen: "https://acdn.mitiendanube.com/stores/002/458/854/products/palo-adidas-indoor-chaosfury-hybraskini-236ab6782dbcb4916a17169174961533-320-0.webp",
          alt: ""
        }
      ]

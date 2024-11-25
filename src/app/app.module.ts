@@ -23,7 +23,7 @@ import { PedidoComponent } from './modules/carrito/components/pedido/pedido.comp
 @NgModule({
   declarations: [
     AppComponent,
-    PedidoComponent
+    //PedidoComponent
   ],
   imports: [
     BrowserModule,

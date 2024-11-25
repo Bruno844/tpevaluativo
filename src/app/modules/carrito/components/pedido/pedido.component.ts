@@ -20,7 +20,7 @@ export class PedidoComponent implements OnInit {
     this.servicioAuth.obtenerUid().then(uid => {
       if (uid) {
         this.servicioAuth.obtenerRol(uid).subscribe(
-          (rol) => {
+          (rol:any) => {
             if (rol === 'usuario') {
               // Inicializamos el carrito
               this.servicioCarrito.iniciarCarrito();
@@ -37,7 +37,7 @@ export class PedidoComponent implements OnInit {
               console.error('El rol no es usuario');
             }
           },
-          (error) => {
+          (error:any) => {
             console.error('Error al obtener el rol:', error);
           }
         );
