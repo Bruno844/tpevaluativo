@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+
 
 // IMPORTAMOS COMPONENTES GLOBALES
 import { SharedModule } from './modules/shared/shared.module';
@@ -34,7 +36,8 @@ import { PedidoComponent } from './modules/carrito/components/pedido/pedido.comp
     // VINCULACIÓN CON FIREBASE
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializar Firebase dentro del proyecto
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

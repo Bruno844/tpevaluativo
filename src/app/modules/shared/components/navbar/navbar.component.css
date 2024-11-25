@@ -4,6 +4,9 @@
 .img{
     margin-right: 40px;
 }
+.icon-nav{
+    color: black;
+}
 
 /*
     1) Santi: Aplica estilos generales según margen o ancho de una pantalla
@@ -15,6 +18,7 @@
 @media (min-width: 300px) and (max-width: 700px){
     mat-toolbar{
         background-color: pink;
+        margin-right: 0px !important;
     }
 
     #menuInicio{
@@ -23,6 +27,15 @@
 
     #menuProducto{
         display: none;
+    }
+    .icon-nav{
+        margin-left: -30px;
+    }
+    .img{
+        margin-right: 20px;
+        font-size: 20px;
+        height: 30px;
+        width: 50px;
     }
 }
 
